@@ -19,7 +19,7 @@ import javax.mail.event.StoreListener;
 
 import com.sun.mail.imap.IMAPFolder;
 
-public class IMAPClient {
+public class ListeningIMAPClient {
     private Store store;
     private String username;
     private String password;
@@ -27,7 +27,7 @@ public class IMAPClient {
     private int port;
     private Properties properties;
 
-    public IMAPClient(String host, int port, String username, String password, Properties extraProperties) {
+    public ListeningIMAPClient(String host, int port, String username, String password, Properties extraProperties) {
         this.host = host;
         this.port = port;
         this.username = username;
@@ -115,6 +115,7 @@ public class IMAPClient {
 
                     @Override
                     public void messageChanged(MessageChangedEvent e) {
+                        // invoked when a message modifies it's status (unread-read)
                         System.out.println("changed>>> changed - " + e);
                     }
                 });
@@ -128,6 +129,7 @@ public class IMAPClient {
 
                     @Override
                     public void messagesAdded(MessageCountEvent e) {
+                        // invoked when a message comes to this folder
                         System.out.println("count>>> added - " + e);
                     }
                 });

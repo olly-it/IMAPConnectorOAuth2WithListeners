@@ -1,7 +1,5 @@
 package it.olly.imapconnector.listeners;
 
-import java.util.Properties;
-
 public class MainGmail {
 
     public static void main(String[] args) throws Exception {
@@ -11,17 +9,17 @@ public class MainGmail {
 
         // <app password>
         // Google's Account -> Security -> Signing in to Google -> App password
-        // String password = "";
-        // IMAPClient ic = new IMAPClient(host, port, username, password, null);
+        String password = "";
+        ListeningIMAPClient ic = new ListeningIMAPClient(host, port, username, password, null);
         // </app password>
 
         // <access token>
-        String password = "";
+        // String password = "";
         // Extra properties
-        Properties props = new Properties();
-        props.put("mail.imap.auth.mechanisms", "XOAUTH2");
-        props.put("mail.imaps.sasl.mechanisms.oauth2.oauthToken", password);
-        IMAPClient ic = new IMAPClient(host, port, username, password, props);
+        // Properties props = new Properties();
+        // props.put("mail.imap.auth.mechanisms", "XOAUTH2");
+        // props.put("mail.imaps.sasl.mechanisms.oauth2.oauthToken", password);
+        // ListeningIMAPClient ic = new ListeningIMAPClient(host, port, username, password, props);
         // </access token>
 
         try {

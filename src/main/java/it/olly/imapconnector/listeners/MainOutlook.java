@@ -32,7 +32,7 @@ public class MainOutlook {
         // props.put("mail.smtp.auth.mechanisms", "XOAUTH2");
         props.put("mail.imaps.sasl.mechanisms.oauth2.oauthToken", password);
 
-        IMAPClient ic = new IMAPClient(host, port, username, password, props);
+        ListeningIMAPClient ic = new ListeningIMAPClient(host, port, username, password, props);
         try {
             System.out.println("CONNECTING...");
             ic.connect();
